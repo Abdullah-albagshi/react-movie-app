@@ -18,7 +18,6 @@ export default class movie extends Component {
 	async getMovies() {
 		const movies = await axios.get(apiURL);
 		const moviesData = movies.data.results;
-		console.log(moviesData);
 		this.setState({ moviesObj: moviesData });
 	}
 
