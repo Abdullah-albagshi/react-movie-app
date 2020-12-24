@@ -1,6 +1,9 @@
-import React from 'react';
+import React  from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.css'
+import 'jquery'
+import '@popperjs/core'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
