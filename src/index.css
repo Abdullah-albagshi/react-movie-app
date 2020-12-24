@@ -13,7 +13,7 @@ code {
 }
 
 .card__body {
-    max-width: 300px!important;
+    max-width: 300px !important;
     overflow: hidden;
     margin-bottom: 50px;
     position: relative;
@@ -30,6 +30,18 @@ code {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+}
+
+.rate {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    z-index: 10;
+}
+
+.rate span {
+    width: 40px;
+    padding: 10px;
 }
 
 .movie-card:hover img {
@@ -61,16 +73,8 @@ img {
     align-items: center;
 }
 
-.rate {
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    z-index: 10;
-}
-
-.rate span {
-    width: 40px;
-    padding: 10px;
+.popover {
+    color: #0092ca;
 }
 
 @media screen and (min-width:1150px) {
