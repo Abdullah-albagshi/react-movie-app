@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import MovieCard from './MovieCard';
 
-const apiKey = process.env.REACT_APP_API_KEY
+const apiKey = process.env.REACT_APP_API_KEY;
 
 console.log(process.env.REACT_APP_API_KEY);
 
-const apiURL =
-	`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${apiKey}`;
+const apiURL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${apiKey}`;
 
 export default class movie extends Component {
 	constructor() {
