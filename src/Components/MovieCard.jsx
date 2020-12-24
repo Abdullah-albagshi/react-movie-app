@@ -20,7 +20,6 @@ const MovieCard = ({
 					title={title}
 					release_date={release_date}
 					overview={overview}
-					vote_average={vote_average}
 				/>
 			</div>
 		</div>
