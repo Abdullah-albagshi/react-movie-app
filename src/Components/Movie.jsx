@@ -3,7 +3,7 @@ import axios from 'axios';
 import MovieCard from './MovieCard';
 
 const apiURL =
-	'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=9e058083ea188da98174ef4a8d1c2f31';
+	'';
 
 export default class movie extends Component {
 	constructor() {
