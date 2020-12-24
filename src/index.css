@@ -16,6 +16,7 @@ code {
     max-width: 300px!important;
     overflow: hidden;
     margin-bottom: 50px;
+    position: relative;
 }
 
 .movie-card {
@@ -33,24 +34,43 @@ code {
 
 .movie-card:hover img {
     transition: 0.5s ease-in-out;
-    width: 120%;
+    transform: scale(1);
+}
+
+.img-card {
+    overflow: hidden;
 }
 
 img {
-    object-fit: cover;
+    display: block;
     justify-content: start;
-    position: relative;
+    transform: scale(1.2);
+    object-fit: cover;
     width: 100%;
     min-width: 200px;
 }
 
 .details {
+    color: #eeeeee;
     font-weight: 700;
     margin: 10px;
     padding: 0 20px;
     width: 100%;
     text-align: left;
-    align-items: flex-start;
+    display: flex;
+    align-items: center;
+}
+
+.rate {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    z-index: 10;
+}
+
+.rate span {
+    width: 40px;
+    padding: 10px;
 }
 
 @media screen and (min-width:1150px) {
