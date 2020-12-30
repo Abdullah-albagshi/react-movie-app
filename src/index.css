@@ -53,7 +53,7 @@ code {
     overflow: hidden;
 }
 
-img {
+.poster-img {
     display: block;
     justify-content: start;
     transform: scale(1.2);
