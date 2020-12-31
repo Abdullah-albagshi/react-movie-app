@@ -1,8 +1,8 @@
 import React from 'react';
 
-const MovieRate = ({ vote_average }) => {
+const MovieRate = ({ vote_average, vote_count = null ,  defClass='rate'}) => {
 	return (
-		<div className="rate">
+		<div className={defClass}>
 			<span
 				className={`badge badge-pill ${
 					vote_average >= 7.5
