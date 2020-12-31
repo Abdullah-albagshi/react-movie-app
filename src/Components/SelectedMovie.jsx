@@ -21,7 +21,6 @@ const SelectedMovie = ({ match }) => {
 	const apiURL = `https://api.themoviedb.org/3/movie/${movieId}?&api_key=${apiKey}`;
 
 	const [movie, setMovie] = useState({});
-	// const [genres, setGenres] = useState([]);
 
 	let getMovieDetails = async () => {
 		const fetchMovie = await axios.get(apiURL);
@@ -75,8 +74,8 @@ const SelectedMovie = ({ match }) => {
 						defClass={'selected-rate'}
 					/>
 				</div>
-                {/* <SelectedMovieDetails movie={movie}/> */}
-				<div className="selected-movie-details">
+                <SelectedMovieDetails movie={movie}/>
+				{/* <div className="selected-movie-details">
 					<h1>{movie.title}</h1>
 					<div className="movie-details-text">
 						<p>
@@ -109,7 +108,7 @@ const SelectedMovie = ({ match }) => {
 							backgroundImage: `url(${imgUrl}${movie.backdrop_path})`,
 						}}
 					></div>
-				</div>
+				</div> */}
 			</div>
 			<MovieCarousel className="carousel-component" movieId={movieId} />
 
