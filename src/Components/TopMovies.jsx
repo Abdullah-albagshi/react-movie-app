@@ -12,7 +12,6 @@ const TopMovies = () => {
 	let getMovieDetails = async () => {
 		const movie = await axios.get(apiURL);
         const movieData = movie.data.results;
-        console.log(movieData);
 		setTopMovie(movieData);
 	};
 
