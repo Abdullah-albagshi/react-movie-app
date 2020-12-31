@@ -11,7 +11,8 @@ const TopMovies = () => {
 
 	let getMovieDetails = async () => {
 		const movie = await axios.get(apiURL);
-		const movieData = movie.data.results;
+        const movieData = movie.data.results;
+        console.log(movieData);
 		setTopMovie(movieData);
 	};
 
@@ -25,9 +26,11 @@ const TopMovies = () => {
 
 	return (
 		<div className="row d-flex justify-content-around">
-			{topMovie.map((movie) => (
-				<MovieCard key={movie.id} {...movie} />
-			))}
+            {topMovie.map((movie) => 
+            {
+                if (movie.overview.includes('sex') || movie.overview.includes('romance') || movie.genre_ids[0]===10749) return null;
+                else return <MovieCard key={movie.id} {...movie} />;
+            })}
 		</div>
 	);
 };
