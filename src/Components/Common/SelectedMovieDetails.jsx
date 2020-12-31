@@ -11,7 +11,6 @@ const imgUrl = 'https://image.tmdb.org/t/p/w500/';
 
 const SelectedMovieDetails = ({ movie }) => {
 	let getGenre = () => {
-		console.log(movie.genres);
 		const movieGenres = movie.genres;
 		const genres = [];
 		try {
@@ -27,7 +26,6 @@ const SelectedMovieDetails = ({ movie }) => {
 	};
 
 	let getTime = () => {
-		console.log(movie.runtime);
 		const time = movie.runtime;
 		let Hours = Math.floor(time / 60);
 		let minutes = time % 60;
