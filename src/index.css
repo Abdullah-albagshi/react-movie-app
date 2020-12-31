@@ -1,11 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+:root {
+    --white--color: #eeeeee;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: 'Ubuntu', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #eeeeee;
+    color: var(--white--color);
 }
 
 code {
@@ -63,7 +71,7 @@ code {
 }
 
 .details {
-    color: #eeeeee;
+    color: var(--white--color);
     font-weight: 700;
     margin: 10px;
     padding: 0 20px;
@@ -77,8 +85,95 @@ code {
     color: #0092ca;
 }
 
+
+/* Selected movie styles */
+
+.selected-movie-card {
+    color: #fff;
+    text-shadow: 0px 0px 20px #0a00007c;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+/* Selected movie rate  */
+
+.selected-rate {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 10;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected-rate span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+/*  */
+
+.selected-movie-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.selected-movie-details {
+    position: relative;
+    max-width: 750px;
+    padding: 20px;
+    z-index: 5;
+}
+
+.movie-details-text p {
+    display: inline-block;
+    text-align: left;
+    margin-right: 10px;
+}
+
+.blur-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+.picked-movie {
+    width: 350px;
+    height: 500px;
+}
+
+
+/* Carousel Styles */
+
+.carousel {
+    opacity: 0.8;
+    max-width: 500px;
+}
+
 @media screen and (min-width:1150px) {
-    img {
+    .poster-img {
         height: 400px;
     }
 }
