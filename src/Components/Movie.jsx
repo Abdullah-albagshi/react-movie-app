@@ -29,7 +29,7 @@ export default class movie extends Component {
 		return (
 			<div className="row d-flex justify-content-around">
 				{this.state.moviesObj.map((movie) => {
-                if (movie.overview.includes('sex') || movie.overview.includes('romance') || movie.genre_ids[0]===10749) return null;
+                if (movie.overview.includes('sex') || movie.overview.includes('romance') || movie.genre_ids.indexOf(10749)>=0) return null;
                 else return <MovieCard key={movie.id} {...movie} />;
 				})}
 			</div>
