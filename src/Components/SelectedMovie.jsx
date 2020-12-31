@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faClock,
-	faCalendarAlt,
-	faFileAlt,
-	faEllipsisV,
-} from '@fortawesome/free-solid-svg-icons';
 
 import ImageContainer from './Common/ImageContainer';
 import MovieCarousel from './Common/MovieCarousel';
@@ -75,49 +68,8 @@ const SelectedMovie = ({ match }) => {
 					/>
 				</div>
                 <SelectedMovieDetails movie={movie}/>
-				{/* <div className="selected-movie-details">
-					<h1>{movie.title}</h1>
-					<div className="movie-details-text">
-						<p>
-							<FontAwesomeIcon icon={faClock} className="mr-1" />
-							{getTime()}
-                        <FontAwesomeIcon icon={faEllipsisV} className="ml-2 d-sm-none d-md-inline-block" />
-
-						</p>
-						<p>
-							<FontAwesomeIcon
-								icon={faFileAlt}
-								className="mr-2"
-							/>
-							{getGenre()}
-                        <FontAwesomeIcon icon={faEllipsisV} className="ml-2 d-sm-none d-md-inline-block" />
-						</p>
-
-						<p>
-							<FontAwesomeIcon
-								icon={faCalendarAlt}
-								className="mr-1"
-							/>
-							{movie.release_date}
-						</p>
-					</div>
-					<p>{movie.overview}</p>
-					<div
-						className="blur-bg"
-						style={{
-							backgroundImage: `url(${imgUrl}${movie.backdrop_path})`,
-						}}
-					></div>
-				</div> */}
 			</div>
 			<MovieCarousel className="carousel-component" movieId={movieId} />
-
-			{/* <div className="backdrop-img">
-				<img
-					src={`${imgUrl}${movie.backdrop_path}`}
-					alt={`${movie.title}`}
-				/>
-			</div> */}
 		</div>
 	);
 };
