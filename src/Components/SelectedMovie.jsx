@@ -49,7 +49,7 @@ const SelectedMovie = ({ match }) => {
 				</div>
 				<SelectedMovieDetails movie={movie} />
 			</div>
-			<MovieCarousel className="carousel-component" movieId={movieId} />
+			<MovieCarousel className="carousel-component" movieId={movieId} typeOf={typeOf} />
 		</div>
 	);
 };

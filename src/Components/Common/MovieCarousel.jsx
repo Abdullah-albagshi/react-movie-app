@@ -4,8 +4,8 @@ import { Carousel } from 'react-bootstrap';
 
 const imgUrl = 'https://image.tmdb.org/t/p/w500/';
 
-const MovieCarousel = ({ movieId }) => {
-	const movieImagesUrl = `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=9e058083ea188da98174ef4a8d1c2f31&language=en-US&include_image_language=en%2Cnull`;
+const MovieCarousel = ({ movieId , typeOf}) => {
+	const movieImagesUrl = `https://api.themoviedb.org/3/${typeOf}/${movieId}/images?api_key=9e058083ea188da98174ef4a8d1c2f31&language=en-US&include_image_language=en%2Cnull`;
 	const [images, setImages] = useState([]);
 
 	let getMovieImages = async () => {
