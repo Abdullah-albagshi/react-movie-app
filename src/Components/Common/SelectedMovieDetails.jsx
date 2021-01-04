@@ -24,14 +24,12 @@ const SelectedMovieDetails = ({ movie }) => {
 		if (!genres) return;
 		return genres.join(', ');
 	};
-
 	let getTime = () => {
-		const time = movie.runtime;
+		const time = movie.runtime || movie.episode_run_time;
 		let Hours = Math.floor(time / 60);
 		let minutes = time % 60;
 		return `${Hours}h ${minutes}min`;
 	};
-
 	return (
 		<div className="selected-movie-details">
 			<h1>{movie.title}</h1>
@@ -52,7 +50,6 @@ const SelectedMovieDetails = ({ movie }) => {
 						className="ml-2 d-sm-none d-md-inline-block"
 					/>
 				</p>
-
 				<p>
 					<FontAwesomeIcon icon={faCalendarAlt} className="mr-1" />
 					{movie.release_date}
