@@ -16,9 +16,33 @@ body {
     color: var(--white--color);
 }
 
-code {
+
+/* code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+} */
+
+
+/*  Search bar styles Start */
+
+input[type='search'] {
+    background-color: #0092ca;
+    color: var(--white--color);
+    padding: 5px 15px;
+    border: 1px solid #222831;
+    width: 250px;
+    border-radius: 25px;
 }
+
+::placeholder {
+    color: var(--white--color);
+}
+
+input[type='search']:focus {
+    outline: none;
+}
+
+
+/*  Search bar styles End */
 
 .card__body {
     max-width: 300px !important;
