@@ -7,7 +7,7 @@ const ImageContainer = ({ poster_path, title, defClass = 'poster-img' }) => {
 			<img
 				loading="lazy"
 				className={defClass}
-				src={`${imgUrl}${poster_path}`}
+				src={(poster_path ? `${imgUrl}${poster_path}` : 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png') }
 				alt={`${title}`}
 			/>
 		</div>
