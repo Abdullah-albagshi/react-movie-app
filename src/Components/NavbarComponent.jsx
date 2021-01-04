@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Navbar } from 'react-bootstrap';
+import Search from './Common/SearchComponent';
 const NavbarComponent = () => {
 	return (
 		<Navbar bg="light" expand="lg">
@@ -29,6 +30,7 @@ const NavbarComponent = () => {
 						</NavLink>
 					</li>
 				</ul>
+            <Search/>
 			</Navbar.Collapse>
 		</Navbar>
 	);
