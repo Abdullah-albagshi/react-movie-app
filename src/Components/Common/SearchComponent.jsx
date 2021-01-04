@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-// import Result from './Results';
 import { Redirect } from 'react-router-dom';
 
 const apiKey = process.env.REACT_APP_API_KEY;
@@ -39,14 +38,7 @@ class Search extends Component {
 			const resData = await axios.get(url);
 			const data = resData.data.results;
 			this.setState({ results: data });
-			console.log(this.state.results);
-			console.log(window.location.href);
 			this.setState({ number: ++this.state.number });
-			const resultString = 'results';
-			let exists = new RegExp(resultString + '$').test(
-				window.location.href
-			);
-			console.log(exists);
 		}
 	}
 
