@@ -6,12 +6,15 @@ import MovieCarousel from './Common/MovieCarousel';
 import MovieRate from './Common/MovieRate';
 import SelectedMovieDetails from './Common/SelectedMovieDetails';
 
-const imgUrl = 'https://image.tmdb.org/t/p/w500/';
 const apiKey = process.env.REACT_APP_API_KEY;
 
 const SelectedMovie = ({ match }) => {
+	let typeOf = 'movie';
+	if (match.params.mediaType === 'tv') {
+		typeOf = 'tv';
+	}
 	const movieId = match.params.id;
-	const apiURL = `https://api.themoviedb.org/3/movie/${movieId}?&api_key=${apiKey}`;
+	const apiURL = `https://api.themoviedb.org/3/${typeOf}/${movieId}?&api_key=${apiKey}`;
 
 	const [movie, setMovie] = useState({});
 
@@ -29,29 +32,6 @@ const SelectedMovie = ({ match }) => {
 		}
 	}, []);
 
-	let getGenre = () => {
-		console.log(movie.genres);
-		const movieGenres = movie.genres;
-		const genres = [];
-		try {
-			if (!movieGenres) return;
-			movieGenres.forEach((genre) => {
-				genres.push(genre.name);
-			});
-		} catch (error) {
-			console.log(error);
-		}
-		if (!genres) return;
-		return genres.join(', ');
-	};
-
-	let getTime = () => {
-		console.log(movie.runtime);
-		const time = movie.runtime;
-		let Hours = Math.floor(time / 60);
-		let minutes = time % 60;
-		return `${Hours}h ${minutes}min`;
-	};
 	return (
 		<div className="selected-movie-card">
 			<div className="selected-movie-container">
@@ -67,7 +47,7 @@ const SelectedMovie = ({ match }) => {
 						defClass={'selected-rate'}
 					/>
 				</div>
-                <SelectedMovieDetails movie={movie}/>
+				<SelectedMovieDetails movie={movie} />
 			</div>
 			<MovieCarousel className="carousel-component" movieId={movieId} />
 		</div>
