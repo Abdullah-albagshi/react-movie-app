@@ -26,7 +26,10 @@ const SelectedMovieDetails = ({ movie }) => {
 	};
 	let getTime = () => {
 		if ('episode_run_time' in movie) {
-			const time = movie.episode_run_time[0] || movie.episode_run_time[1];
+            const time = movie.episode_run_time[0] || movie.episode_run_time[1];
+            if (!time){
+                return 'Not Available'
+            }
 			let Hours = Math.floor(time / 60);
 			let minutes = time % 60;
 			return `${Hours}h ${minutes}min`;
