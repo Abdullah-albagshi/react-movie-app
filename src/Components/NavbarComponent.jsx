@@ -5,8 +5,8 @@ import Search from './Common/SearchComponent';
 const NavbarComponent = () => {
 	return (
 		<Navbar bg="light" expand="lg">
-			<NavLink  aria-current="page" to="/" className='mr-3'>
-				<Navbar.Brand className='logo '>Movie Book</Navbar.Brand>
+			<NavLink aria-current="page" to="/" className="mr-3">
+				<Navbar.Brand className="logo ">Movie Book</Navbar.Brand>
 			</NavLink>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav">
@@ -20,7 +20,7 @@ const NavbarComponent = () => {
 							Popular Movies
 						</NavLink>
 					</li>
-                    <li className="nav-item">
+					<li className="nav-item">
 						<NavLink
 							className="nav-link active"
 							aria-current="page"
@@ -29,8 +29,17 @@ const NavbarComponent = () => {
 							Top Rated Movies
 						</NavLink>
 					</li>
+					<li className="nav-item">
+						<NavLink
+							className="nav-link active"
+							aria-current="page"
+							to="/tv"
+						>
+							tv
+						</NavLink>
+					</li>
 				</ul>
-            <Search/>
+				<Search />
 			</Navbar.Collapse>
 		</Navbar>
 	);
