@@ -43,7 +43,7 @@ const SelectedMovieDetails = ({ movie }) => {
 	};
 	return (
 		<div className="selected-movie-details">
-			<h1>{movie.title}</h1>
+			<h1>{movie.title|| movie.name}</h1>
 			<div className="movie-details-text">
 				<p>
 					<FontAwesomeIcon icon={faClock} className="mr-1" />
