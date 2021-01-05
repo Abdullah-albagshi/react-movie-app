@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
 const apiKey = process.env.REACT_APP_API_KEY;
-
+const words = [process.env.REACT_APP_WORD_1,process.env.REACT_APP_WORD_2,process.env.REACT_APP_WORD_3]
 class Search extends Component {
 	constructor(props) {
 		super(props);
@@ -12,7 +12,6 @@ class Search extends Component {
 			query: '',
 			number: 1,
 		};
-
 		this.submit = this.submit.bind(this);
 		this.changeQuery = this.changeQuery.bind(this);
 	}
@@ -30,9 +29,9 @@ class Search extends Component {
 		event.preventDefault();
 		if (
 			this.state.query !== '' &&
-			this.state.query !== 'porn' &&
-			this.state.query !== 'gay' &&
-			this.state.query !== 'sex'
+			this.state.query.toLowerCase() !== words[0] &&
+			this.state.query.toLowerCase() !== words[1] &&
+			this.state.query.toLowerCase() !== words[2]
 		) {
 			let url = `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=en-US&query=${this.state.query}&page=1&include_adult=false`;
 			const resData = await axios.get(url);
