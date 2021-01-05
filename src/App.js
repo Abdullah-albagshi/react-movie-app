@@ -10,18 +10,14 @@ function App() {
 	return (
 		<>
 			<NavbarComponent />
-			<div className="container-fluid  mt-4">
+			<div className="container-fluid mt-4">
 				<Switch>
 					<Route exact path="/" component={Movie} />
-					<Route
-						exact
-						path="/movie/:id"
-						component={SelectedMovie}
-					/>
+					<Route exact path="/movie/:id" component={SelectedMovie} />
 					<Route exact path="/top-rated" component={TopMovies} />
 				</Switch>
 				<Switch>
-					<Route exact path="/results" component={Results}/>
+					<Route exact path="/results" component={Results} />
 					<Route
 						exact
 						path="/results/:id?/:mediaType?"
