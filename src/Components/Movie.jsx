@@ -15,6 +15,7 @@ export default class movie extends Component {
 		this.state = {
 			moviesObj: [],
 			pageNum: 1,
+			linkPath: 'movie',
 		};
 	}
 	path = 'movie';
@@ -24,15 +25,16 @@ export default class movie extends Component {
 	pathName() {
 		let path = window.location.pathname.split('/')[1];
 		if (path === 'tv') {
+			this.setState({ linkPath: 'tv' });
 			return this.tvApiURL;
 		} else if (path === '') {
+			this.setState({ linkPath: 'movie' });
 			return this.movieApiURL;
 		}
 	}
 
 	async getMovies() {
 		let url = this.pathName();
-		console.log(url);
 		const movies = await axios.get(url + this.state.pageNum);
 		const moviesData = movies.data.results;
 		this.setState({ moviesObj: moviesData });
@@ -73,7 +75,6 @@ export default class movie extends Component {
 			this.getMovies();
 		} else if (page) {
 			this.setState({ pageNum: page }, () => {
-				console.log(this.state.pageNum);
 				this.getMovies();
 			});
 		}
@@ -87,7 +88,6 @@ export default class movie extends Component {
 			<>
 				<div className="row d-flex justify-content-around">
 					{this.state.moviesObj.map((movie) => {
-						console.log(movie);
 						if (
 							movie.overview.includes('sex') ||
 							movie.overview.includes('romance') ||
@@ -105,8 +105,8 @@ export default class movie extends Component {
 								) {
 									return null;
 								}
-							} else if ('name' in movie){
-                                if (
+							} else if ('name' in movie) {
+								if (
 									movie.name
 										.toLowerCase()
 										.includes(words[0]) ||
@@ -117,8 +117,8 @@ export default class movie extends Component {
 								) {
 									return null;
 								}
-                            }
-						} else return <MovieCard key={movie.id} {...movie} />;
+							}
+						} else return <MovieCard key={movie.id} {...movie} linkPath={this.state.linkPath} />;
 					})}
 				</div>
 				<Paginate
