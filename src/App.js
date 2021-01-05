@@ -12,7 +12,8 @@ function App() {
 			<NavbarComponent />
 			<div className="container-fluid mt-4">
 				<Switch>
-					<Route exact path="/" component={Movie} />
+					<Route key='movies' exact path="/" component={Movie}  />
+					<Route key='tv' exact path="/tv" component={Movie} />
 					<Route exact path="/movie/:id" component={SelectedMovie} />
 					<Route exact path="/top-rated" component={TopMovies} />
 				</Switch>
