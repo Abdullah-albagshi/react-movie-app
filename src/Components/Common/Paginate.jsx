@@ -5,8 +5,8 @@ const Paginate = ({ pageNum, handelNext, handelPrev, disabled }) => {
 	let pageNumber, pageNumber2, pageNumber3, pageNumber4;
 	pageNumber = pageNumber2 = pageNumber3 = pageNumber4 = pageNum;
 	return (
-		<div>
-			<Pagination>
+		
+			<Pagination className=' justify-content-center'>
                 <Pagination.First
                     disabled= {pageNum<=2}
 					onClick={() => {
@@ -55,7 +55,6 @@ const Paginate = ({ pageNum, handelNext, handelPrev, disabled }) => {
                     handelNext()
                 }} />
 			</Pagination>
-		</div>
 	);
 };
 
