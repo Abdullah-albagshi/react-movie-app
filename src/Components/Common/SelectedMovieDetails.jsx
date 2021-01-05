@@ -25,10 +25,21 @@ const SelectedMovieDetails = ({ movie }) => {
 		return genres.join(', ');
 	};
 	let getTime = () => {
-		const time = movie.runtime || movie.episode_run_time;
-		let Hours = Math.floor(time / 60);
-		let minutes = time % 60;
-		return `${Hours}h ${minutes}min`;
+		if ('episode_run_time' in movie) {
+			const time = movie.episode_run_time[0] || movie.episode_run_time[1];
+			let Hours = Math.floor(time / 60);
+			let minutes = time % 60;
+			return `${Hours}h ${minutes}min`;
+		} else {
+			const time = movie.runtime;
+			let Hours = Math.floor(time / 60);
+			let minutes = time % 60;
+			return `${Hours}h ${minutes}min`;
+		}
+		// const time = movie.runtime || movie.episode_run_time || movie.episode_run_time[1];
+		// let Hours = Math.floor(time / 60);
+		// let minutes = time % 60;
+		// return `${Hours}h ${minutes}min`;
 	};
 	return (
 		<div className="selected-movie-details">
@@ -52,7 +63,7 @@ const SelectedMovieDetails = ({ movie }) => {
 				</p>
 				<p>
 					<FontAwesomeIcon icon={faCalendarAlt} className="mr-1" />
-					{movie.release_date}
+					{movie.release_date || movie.first_air_date}
 				</p>
 			</div>
 			<p>{movie.overview}</p>
