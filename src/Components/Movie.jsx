@@ -9,7 +9,6 @@ const words = [
 	process.env.REACT_APP_WORD_2,
 	process.env.REACT_APP_WORD_3,
 ];
-
 export default class movie extends Component {
 	constructor() {
 		super();
@@ -18,10 +17,23 @@ export default class movie extends Component {
 			pageNum: 1,
 		};
 	}
-	apiURL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${apiKey}&page=`;
+	path = 'movie';
+	movieApiURL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${apiKey}&page=`;
+	tvApiURL = `https://api.themoviedb.org/3/discover/tv?sort_by=popularity.desc&api_key=${apiKey}&page=`;
+
+	pathName() {
+		let path = window.location.pathname.split('/')[1];
+		if (path === 'tv') {
+			return this.tvApiURL;
+		} else if (path === '') {
+			return this.movieApiURL;
+		}
+	}
 
 	async getMovies() {
-		const movies = await axios.get(this.apiURL + this.state.pageNum);
+		let url = this.pathName();
+		console.log(url);
+		const movies = await axios.get(url + this.state.pageNum);
 		const moviesData = movies.data.results;
 		this.setState({ moviesObj: moviesData });
 	}
@@ -57,7 +69,6 @@ export default class movie extends Component {
 
 	handelPrev = (page = null) => {
 		if (!page) {
-			console.log(page);
 			this.setState({ pageNum: --this.state.pageNum });
 			this.getMovies();
 		} else if (page) {
@@ -76,16 +87,38 @@ export default class movie extends Component {
 			<>
 				<div className="row d-flex justify-content-around">
 					{this.state.moviesObj.map((movie) => {
+						console.log(movie);
 						if (
 							movie.overview.includes('sex') ||
 							movie.overview.includes('romance') ||
-							movie.title.toLowerCase().includes(words[0]) ||
-							movie.title.toLowerCase().includes(words[1]) ||
-							movie.title.toLowerCase().includes(words[2]) ||
 							movie.genre_ids.indexOf(10749) >= 0
-						)
-							return null;
-						else return <MovieCard key={movie.id} {...movie} />;
+						) {
+							if ('title' in movie) {
+								if (
+									movie.title
+										.toLowerCase()
+										.includes(words[0]) ||
+									movie.title
+										.toLowerCase()
+										.includes(words[1]) ||
+									movie.title.toLowerCase().includes(words[2])
+								) {
+									return null;
+								}
+							} else if ('name' in movie){
+                                if (
+									movie.name
+										.toLowerCase()
+										.includes(words[0]) ||
+									movie.name
+										.toLowerCase()
+										.includes(words[1]) ||
+									movie.name.toLowerCase().includes(words[2])
+								) {
+									return null;
+								}
+                            }
+						} else return <MovieCard key={movie.id} {...movie} />;
 					})}
 				</div>
 				<Paginate
@@ -93,6 +126,7 @@ export default class movie extends Component {
 					handelNext={this.handelNext}
 					handelPrev={this.handelPrev}
 					disabled={this.isDisabled}
+					getMovies={this.getMovies}
 				/>
 			</>
 		);
