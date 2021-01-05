@@ -10,7 +10,7 @@ const apiKey = process.env.REACT_APP_API_KEY;
 
 const SelectedMovie = ({ match }) => {
 	let typeOf = 'movie';
-	if (match.params.mediaType === 'tv') {
+	if (match.params.mediaType === 'tv' || match.path.includes('tv') ) {
 		typeOf = 'tv';
 	}
 	const movieId = match.params.id;
