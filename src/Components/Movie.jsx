@@ -41,7 +41,9 @@ export default class movie extends Component {
 	}
 
 	async componentDidMount() {
-		const pageNumber = JSON.parse(localStorage.getItem('savedPageNumber'));
+		const pageNumber = JSON.parse(
+			localStorage.getItem('savedPageNumber') || 1
+		);
 		this.setState({ pageNum: pageNumber }, () => {
 			try {
 				this.getMovies();
@@ -118,7 +120,14 @@ export default class movie extends Component {
 									return null;
 								}
 							}
-						} else return <MovieCard key={movie.id} {...movie} linkPath={this.state.linkPath} />;
+						} else
+							return (
+								<MovieCard
+									key={movie.id}
+									{...movie}
+									linkPath={this.state.linkPath}
+								/>
+							);
 					})}
 				</div>
 				<Paginate
