@@ -14,7 +14,8 @@ function App() {
 				<Switch>
 					<Route key='movies' exact path="/" component={Movie}  />
 					<Route key='tv' exact path="/tv" component={Movie} />
-					<Route exact path="/movie/:id" component={SelectedMovie} />
+					<Route key='movies' exact path="/movie/:id" component={SelectedMovie} />
+					<Route key='tv' exact path="/tv/:id" component={SelectedMovie} />
 					<Route exact path="/top-rated" component={TopMovies} />
 				</Switch>
 				<Switch>
