@@ -27,6 +27,7 @@ class Results extends Component {
 			<div className="row d-flex justify-content-around">
 				{this.state.sResults.length > 0 ? (
 					this.state.sResults.map((movie) => {
+                        console.log(this.state.sResults)
 						if (
 							movie.media_type === 'movie' ||
 							movie.media_type === 'tv'

@@ -25,8 +25,8 @@ const SelectedMovie = ({ match }) => {
 	};
 
 	useEffect(() => {
-		try {
-			getMovieDetails();
+        try {
+            getMovieDetails();
 		} catch (error) {
 			console.log(error);
 		}
