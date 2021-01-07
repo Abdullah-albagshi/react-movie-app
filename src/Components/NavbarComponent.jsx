@@ -4,7 +4,7 @@ import { Navbar } from 'react-bootstrap';
 import Search from './Common/SearchComponent';
 const NavbarComponent = () => {
 	return (
-		<Navbar bg="light" expand="lg">
+		<Navbar sticky="top" bg="light" expand="lg">
 			<NavLink aria-current="page" to="/" className="mr-3">
 				<Navbar.Brand className="logo ">Movie Book</Navbar.Brand>
 			</NavLink>
