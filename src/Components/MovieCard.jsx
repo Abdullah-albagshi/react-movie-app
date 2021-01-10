@@ -23,7 +23,7 @@ const MovieCard = ({
 	// });
 	return (
 		<>
-			<Link to={`/${linkPath}/${id}/${mediaType}`} key={mediaType} >
+			<Link to={`/${linkPath}/${id}/${mediaType}`} key={mediaType} className='card__link' >
 				<div className="card__body col-lg-3 col-md-4 col-sm-6 ">
 					<div className="movie-card">
 						<MovieRate vote_average={vote_average} />
