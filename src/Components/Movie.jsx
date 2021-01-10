@@ -116,36 +116,32 @@ export default class movie extends Component {
 								movie.overview.includes('romance') ||
 								movie.genre_ids.indexOf(10749) >= 0
 							) {
-								if ('title' in movie) {
-									if (
-										movie.title
-											.toLowerCase()
-											.includes(words[0]) ||
-										movie.title
-											.toLowerCase()
-											.includes(words[1]) ||
-										movie.title
-											.toLowerCase()
-											.includes(words[2])
-									) {
-										return null;
-									}
-								} else if ('name' in movie) {
-									if (
-										movie.name
-											.toLowerCase()
-											.includes(words[0]) ||
-										movie.name
-											.toLowerCase()
-											.includes(words[1]) ||
-										movie.name
-											.toLowerCase()
-											.includes(words[2])
-									) {
-										return null;
-									}
+								return null;
+							} else if ('title' in movie) {
+								if (
+									movie.title
+										.toLowerCase()
+										.includes(words[0]) ||
+									movie.title
+										.toLowerCase()
+										.includes(words[1]) ||
+									movie.title.toLowerCase().includes(words[2])
+								) {
+									return null;
 								}
-							} else
+							} else if ('name' in movie) {
+								if (
+									movie.name
+										.toLowerCase()
+										.includes(words[0]) ||
+									movie.name
+										.toLowerCase()
+										.includes(words[1]) ||
+									movie.name.toLowerCase().includes(words[2])
+								) {
+									return null;
+								}
+							}
 								return (
 									<MovieCard
 										key={movie.id}
