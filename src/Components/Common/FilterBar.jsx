@@ -53,6 +53,8 @@ const FilterBar = ({ handelFilter }) => {
 
 	return (
 		<div className="filter-bar d-flex flex-column">
+                <h5>Genre</h5>
+                <hr/>
 			<div className="filter-bar-group d-flex ">
 				{genres.map((genre) => {
 					if (genre.id === 10749) return null;
